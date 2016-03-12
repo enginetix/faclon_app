@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#115497" >
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:paddingLeft="10dp"
+                    android:text="Lastest Readings" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:paddingLeft="10dp"
+                    android:text="1" />
+
+                <TextView
+                    android:id="@+id/lastV21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+
+                <TextView
+
+                    android:id="@+id/lastV31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight='1.4'
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:paddingLeft="10dp"
+                    android:text="2" />
+
+                <TextView
+                    android:id="@+id/lastV51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+
+                <TextView
+
+                    android:id="@+id/lastV61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight='1.4'
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:paddingLeft="10dp"
+                    android:text="3" />
+
+                <TextView
+                    android:id="@+id/lastV81"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+
+                <TextView
+
+                    android:id="@+id/lastV91"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight='1.4'
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight=".2"
+                    android:paddingLeft="10dp"
+                    android:text="4" />
+
+                <TextView
+                    android:id="@+id/lastV111"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1.4"
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+
+                <TextView
+
+                    android:id="@+id/lastV121"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight='1.4'
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/lastV131"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:paddingLeft="10dp"
+                    android:text="5" />
+
+                <TextView
+                    android:id="@+id/lastV141"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+
+                <TextView
+
+                    android:id="@+id/lastV151"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight='1.4'
+                    android:paddingLeft="10dp"
+                    android:text="Fetching" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

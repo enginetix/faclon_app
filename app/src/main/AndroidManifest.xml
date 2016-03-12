@@ -20,7 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".scatter"
+            android:label="@string/title_activity_scatter"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
