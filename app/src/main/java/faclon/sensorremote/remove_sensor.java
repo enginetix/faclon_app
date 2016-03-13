@@ -3,6 +3,7 @@ package faclon.sensorremote;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -79,10 +80,20 @@ public class remove_sensor extends AppCompatActivity {
                 ) // add the items we want to use with our Drawer
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem instanceof Nameable) {
-
-                            Toast.makeText(remove_sensor.this, ((Nameable) drawerItem).getName().getText(remove_sensor.this), Toast.LENGTH_SHORT).show();
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {if (drawerItem.getIdentifier() == 1) {
+                        Intent intent = new Intent(remove_sensor.this, MainActivity.class); startActivity(intent);
+                    }
+                        if (drawerItem.getIdentifier() == 2) {
+                            Intent intent = new Intent(remove_sensor.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 3) {
+                            Intent intent = new Intent(remove_sensor.this, addsensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 4) {
+                            Intent intent = new Intent(remove_sensor.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 6) {
+                            Intent intent = new Intent(remove_sensor.this, remove_sensor.class); startActivity(intent);
                         }
                         return false;
                     }

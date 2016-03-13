@@ -71,10 +71,20 @@ public class addsensor extends AppCompatActivity {
 
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem instanceof Nameable) {
-
-                            Toast.makeText(addsensor.this, ((Nameable) drawerItem).getName().getText(addsensor.this), Toast.LENGTH_SHORT).show();
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {if (drawerItem.getIdentifier() == 1) {
+                        Intent intent = new Intent(addsensor.this, MainActivity.class); startActivity(intent);
+                    }
+                        if (drawerItem.getIdentifier() == 2) {
+                            Intent intent = new Intent(addsensor.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 3) {
+                            Intent intent = new Intent(addsensor.this, addsensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 4) {
+                            Intent intent = new Intent(addsensor.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 6) {
+                            Intent intent = new Intent(addsensor.this, remove_sensor.class); startActivity(intent);
                         }
                         return false;
                     }

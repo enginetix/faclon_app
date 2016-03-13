@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
 import com.mikepenz.crossfader.Crossfader;
 import com.mikepenz.crossfader.util.UIUtils;
@@ -96,10 +95,22 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem instanceof Nameable) {
-
-                            Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
+                        if (drawerItem.getIdentifier() == 1) {
+                            Intent intent = new Intent(MainActivity.this, MainActivity.class); startActivity(intent);
                         }
+                        if (drawerItem.getIdentifier() == 2) {
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 3) {
+                            Intent intent = new Intent(MainActivity.this, addsensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 4) {
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                        }
+                        if (drawerItem.getIdentifier() == 6) {
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                        }
+
                         return false;
                     }
                 })
