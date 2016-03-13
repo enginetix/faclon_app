@@ -30,7 +30,7 @@ import java.util.TimeZone;
 public class FirstFragment extends Fragment {
     View v;
     String[][] ravi = new String[1000][60];
-    int numVar;
+    int numVar = 10;
     protected String sensorUID;
     protected String tankname;
     protected String SCALE_M;
@@ -46,9 +46,26 @@ public class FirstFragment extends Fragment {
         v = inflater.inflate(R.layout.first_frag, container, false);
         Bundle bundle = getArguments();
         if (bundle != null) {
+
             sensorUID = getArguments().getString("senID");
+            tankname = getArguments().getString("tNAME");
+            SCALE_C = (getArguments().getString("tSCALEC"));
+            SCALE_M = (getArguments().getString("tSCALEM"));
+            DPs = (getArguments().getString("tDP"));
+            UNITs = (getArguments().getString("tUNIT"));
             numVar = getArguments().getInt("numVar");
+
+
+            System.out.println((getArguments().getString("senID")) + "       UID");
+            System.out.println((getArguments().getString("tNAME")) + "       NAME");
+            System.out.println((getArguments().getString("tSCALEC")) + "       SCALE");
+            System.out.println((getArguments().getString("tDP")) + "       DP");
+            System.out.println((getArguments().getString("tUNIT")) + "       UNIT");
+
+
         }
+        m = Float.parseFloat(SCALE_M);
+        c = Float.parseFloat(SCALE_C);
         new MyAsyncTask().execute();
         return v;
     }
@@ -100,7 +117,6 @@ public class FirstFragment extends Fragment {
             String decodedString = "";
             String returnMsg = "";
 
-            numVar = 200;
             String request = "http://api.carriots.com/devices/arduinotest@rishisharma920.rishisharma920/streams/?order=-1&_contains[]=" + sensorUID + "&max=" + numVar;
             URL url;
             HttpURLConnection connection = null;
@@ -141,7 +157,7 @@ public class FirstFragment extends Fragment {
             LineChart chart = (LineChart) v.findViewById(R.id.chart1);
             chart.setTouchEnabled(true);
 //            MyMarkerView mv = new MyMarkerView(getContext(), R.layout.custom_marker_view);
-          //  chart.setMarkerView(mv);
+            //  chart.setMarkerView(mv);
             chart.setDrawGridBackground(false);
             LineData data = new LineData(getXAxisValues(), getDataSet());
             chart.setData(data);

@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("tSCALEC", cursor.getString(cursor.getColumnIndex("SCALE_C")));
                 intent.putExtra("tUNIT", cursor.getString(cursor.getColumnIndex("UNIT")));
                 intent.putExtra("tDP", cursor.getString(cursor.getColumnIndex("DP")));
-
                 startActivity(intent);
             }
         });

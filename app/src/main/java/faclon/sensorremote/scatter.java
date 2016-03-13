@@ -76,7 +76,8 @@ public class scatter extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
 
@@ -139,6 +140,12 @@ public class scatter extends AppCompatActivity {
             Bundle args = new Bundle();
             args.putString("senID", sensorUID);
             args.putInt("numVar", numVar);
+            args.putString("tNAME", tankname);
+            args.putString("tSCALEC", SCALE_C);
+            args.putString("tSCALEM",SCALE_M);
+            args.putString("tUNIT",UNITs);
+            args.putString("tDP",DPs);
+
 
             switch (pos) {
                 case 0:

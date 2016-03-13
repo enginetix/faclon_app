@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
-
+    protected ListAdapter adapter;
 
     protected SQLiteDatabase db;
     protected EditText UNIT_ET;
@@ -46,9 +46,6 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         db = (new DatabaseHelper(this)).getWritableDatabase();
-        mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Scale " + NAME);
 
 
         TextView crnt = (TextView) findViewById(R.id.current);
@@ -82,6 +79,7 @@ public class Settings extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 
 
     @Override

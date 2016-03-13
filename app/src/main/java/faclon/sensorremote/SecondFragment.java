@@ -47,8 +47,14 @@ public class SecondFragment extends Fragment {
         Bundle bundle = getArguments();
         if(bundle!=null)
         {
-            sensorUID=getArguments().getString("senID");
-            numVar=getArguments().getInt("numVar");
+            sensorUID = getArguments().getString("senID");
+            tankname = getArguments().getString("tNAME");
+            SCALE_C = (getArguments().getString("tSCALEC"));
+            SCALE_M = (getArguments().getString("tSCALEM"));
+            DPs = (getArguments().getString("tDP"));
+            UNITs = (getArguments().getString("tUNIT"));
+            numVar = getArguments().getInt("numVar");
+
         }
         new MyAsyncTask().execute();
         return v;

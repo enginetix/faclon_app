@@ -1,25 +1,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/qwerty"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
 
-    <include
-        android:id="@+id/toolbar_actionbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp" />
 
 
-        <FrameLayout
-            android:id="@+id/container"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <RelativeLayout
+            android:id="@+id/crossfade_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_below="@+id/toolbar"
+            android:layout_marginLeft="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -27,7 +30,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/udp">
 
                 <EditText
                     android:id="@+id/unit"
@@ -50,6 +54,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_below="@+id/udp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -73,9 +78,19 @@
 
 
             </LinearLayout>
-        </LinearLayout>
 
 
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_dialog_email" />
+
+
+    </FrameLayout>
 
 </RelativeLayout>
-
