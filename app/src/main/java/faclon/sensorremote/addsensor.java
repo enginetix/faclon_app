@@ -2,23 +2,17 @@ package faclon.sensorremote;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import com.mikepenz.crossfader.Crossfader;
@@ -36,45 +30,26 @@ import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
-public class MainActivity extends AppCompatActivity {
+public class addsensor extends AppCompatActivity {
 
-
+    protected SQLiteDatabase db;
+    protected EditText Tanksensor;
+    protected EditText SensorCode;
+    protected Context context;
     private Drawer result = null;
     private MiniDrawer miniResult = null;
     private Crossfader crossFader;
-    protected EditText searchText;
-    protected SQLiteDatabase db;
-    protected Cursor cursor;
-    protected ListAdapter adapter;
-    protected ListView tankList;
-    protected Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_addsensor);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, remove_sensor.class);
-                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-            }
-        });
-
-        getSupportActionBar().setTitle("SensorRemote");
-
 
         db = (new DatabaseHelper(this)).getWritableDatabase();
-        searchText = (EditText) findViewById(R.id.searchText);
-        tankList = (ListView) findViewById(R.id.list);
 
-        regenList();
 
         result = new DrawerBuilder()
                 .withActivity(this)
@@ -93,16 +68,18 @@ public class MainActivity extends AppCompatActivity {
                         // new SwitchDrawerItem().withName("Switch").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener),
                         new SwitchDrawerItem().withName("Alerts").withIcon(GoogleMaterial.Icon.gmd_notifications).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
                 ) // add the items we want to use with our Drawer
+
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
 
-                            Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addsensor.this, ((Nameable) drawerItem).getName().getText(addsensor.this), Toast.LENGTH_SHORT).show();
                         }
                         return false;
                     }
                 })
+
                 .withGenerateMiniDrawer(true)
                 .withSavedInstance(savedInstanceState)
                         // build only the view of the Drawer (don't inflate it automatically in our layout which is done with .build())
@@ -130,70 +107,44 @@ public class MainActivity extends AppCompatActivity {
         //define a shadow (this is only for normal LTR layouts if you have a RTL app you need to define the other one
         crossFader.getCrossFadeSlidingPaneLayout().setShadowResourceLeft(R.drawable.material_drawer_shadow_left);
 
-
-        searchText.addTextChangedListener(new TextWatcher() {
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                regenList();
-
-            }
-
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                          int arg3) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-                // TODO Auto-generated method stub
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
+    }
+
+    public void addSnsr(View view) {
+        Tanksensor = (EditText) findViewById(R.id.Tanksensor);
+        SensorCode = (EditText) findViewById(R.id.SensorCode);
+        String s1 = Tanksensor.getText().toString();
+        String s2 = SensorCode.getText().toString();
+        if (s1.matches(""))
+            Toast.makeText(addsensor.this,
+                    "Please enter valid name and code", Toast.LENGTH_LONG).show();
+        else {
 
 
-        tankList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                Intent intent = new Intent(MainActivity.this, scatter.class);
-                Cursor cursor = (Cursor) adapter.getItem(position);
-                intent.putExtra("sDid", cursor.getString(cursor.getColumnIndex("_id")));
-                intent.putExtra("sUID", cursor.getString(cursor.getColumnIndex("UID")));
-                intent.putExtra("tNAME", cursor.getString(cursor.getColumnIndex("TANK_NAME")));
-                intent.putExtra("tSCALEM", cursor.getString(cursor.getColumnIndex("SCALE_M")));
-                intent.putExtra("tSCALEC", cursor.getString(cursor.getColumnIndex("SCALE_C")));
-                intent.putExtra("tUNIT", cursor.getString(cursor.getColumnIndex("UNIT")));
-                intent.putExtra("tDP", cursor.getString(cursor.getColumnIndex("DP")));
-
-                startActivity(intent);
+            if ((s1 + "1") == "1" || (s2 + "1") == "1") {
+                System.out.println("1" + s1 + "1            dd       1" + s2 + "1");
+                Toast.makeText(addsensor.this,
+                        "Invalid Entry", Toast.LENGTH_LONG).show();
+            } else {
+                String s = "INSERT INTO wtrlvl (UID, TANK_NAME, SCALE_M, SCALE_C, DP, UNIT) VALUES('" + s2 + "','" + s1 + "','1','0','20','MM')";
+                db.execSQL(s);
+                Toast.makeText(addsensor.this,
+                        "Entry added", Toast.LENGTH_LONG).show();
+                Tanksensor.setText("");
+                SensorCode.setText("");
             }
-        });
 
 
+        }
     }
 
-    @Override
-    public void onRestart() {
-        super.onRestart();
-        regenList();
-
-    }
-
-
-    public void regenList() {
-        cursor = db.rawQuery("SELECT * FROM wtrlvl WHERE TANK_NAME || ' ' || TANK_NAME LIKE ?",
-                new String[]{"%" + searchText.getText().toString() + "%"});
-        adapter = new SimpleCursorAdapter(
-                MainActivity.this,
-                R.layout.tank_list_item,
-                cursor,
-                new String[]{"TANK_NAME", "UID"},
-                new int[]{R.id.Tankname});
-        tankList.setAdapter(adapter);
-    }
 
     private OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
         @Override
@@ -205,6 +156,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-
 
 }

@@ -22,16 +22,26 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/MaterialDrawerTheme"/>
+            android:theme="@style/MaterialDrawerTheme"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".scatter"
             android:label="@string/title_activity_scatter"
-            android:theme="@style/scatterTheme"></activity>
+            android:theme="@style/scatterTheme" />
         <activity
             android:name=".scaling"
             android:label="@string/title_activity_scaling"
-            android:theme="@style/scatterTheme"></activity>
+            android:theme="@style/scatterTheme" />
+        <activity
+            android:name=".addsensor"
+            android:label="@string/title_activity_addsensor"
+            android:theme="@style/MaterialDrawerTheme"/>
+        <activity
+            android:name=".remove_sensor"
+            android:label="@string/title_activity_remove_sensor"
+            android:theme="@style/MaterialDrawerTheme"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
     </application>
 
 </manifest>

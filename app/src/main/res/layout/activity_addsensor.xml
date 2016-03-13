@@ -21,25 +21,39 @@
             android:id="@+id/crossfade_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="4dp"
-            android:layout_below="@+id/toolbar">
+            android:layout_below="@+id/toolbar"
+            android:layout_marginLeft="4dp">
+
 
             <EditText
-                android:id="@+id/searchText"
+                android:id="@+id/Tanksensor"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sensor Name or ID"
-                android:paddingTop="10dp"
+                android:layout_weight="1"
+                android:hint="Add Tank Name"
+                android:paddingTop="20dp"
                 android:textColorHint="#ffa6a6a6" />
 
-            <ListView
-                android:id="@+id/list"
+            <EditText
+                android:id="@+id/SensorCode"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_below="@id/searchText" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tanksensor"
+                android:layout_weight="1"
+                android:hint="Add Sensor code"
+                android:textColorHint="#ffa6a6a6" />
+
+            <Button
+                android:id="@+id/addsensor"
+                android:layout_below="@+id/SensorCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addSnsr"
+                android:text="ADD SENSOR" />
 
 
         </RelativeLayout>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -47,7 +61,6 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:src="@android:drawable/ic_dialog_email" />
-
 
 
     </FrameLayout>

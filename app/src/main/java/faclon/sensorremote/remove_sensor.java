@@ -1,12 +1,14 @@
 package faclon.sensorremote;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -36,45 +38,27 @@ import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
-public class MainActivity extends AppCompatActivity {
+public class remove_sensor extends AppCompatActivity {
 
-
-    private Drawer result = null;
-    private MiniDrawer miniResult = null;
-    private Crossfader crossFader;
     protected EditText searchText;
     protected SQLiteDatabase db;
     protected Cursor cursor;
     protected ListAdapter adapter;
     protected ListView tankList;
     protected Context context;
+    private Drawer result = null;
+    private MiniDrawer miniResult = null;
+    private Crossfader crossFader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_remove_sensor);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, remove_sensor.class);
-                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-            }
-        });
-
-        getSupportActionBar().setTitle("SensorRemote");
-
-
         db = (new DatabaseHelper(this)).getWritableDatabase();
         searchText = (EditText) findViewById(R.id.searchText);
-        tankList = (ListView) findViewById(R.id.list);
-
-        regenList();
 
         result = new DrawerBuilder()
                 .withActivity(this)
@@ -98,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
 
-                            Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(remove_sensor.this, ((Nameable) drawerItem).getName().getText(remove_sensor.this), Toast.LENGTH_SHORT).show();
                         }
                         return false;
                     }
@@ -130,15 +114,68 @@ public class MainActivity extends AppCompatActivity {
         //define a shadow (this is only for normal LTR layouts if you have a RTL app you need to define the other one
         crossFader.getCrossFadeSlidingPaneLayout().setShadowResourceLeft(R.drawable.material_drawer_shadow_left);
 
+        tankList = (ListView) findViewById(R.id.list);
+        regenList();
+        tankList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, final int position,
+                                    long id) {
+
+                // prepare the alert box
+                AlertDialog.Builder alertbox = new AlertDialog.Builder(remove_sensor.this);
+
+                // set the message to display
+                alertbox.setMessage("Delete?");
+
+
+                // set a negative/no button and create a listener
+                alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Toast.makeText(getApplicationContext(), "'No' button clicked", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                // set a positive/yes button and create a listener
+                alertbox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    // do something when the button is clicked
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        //  Intent intent = new Intent(remove_sensor.this, Sensor_out.class);
+                        Cursor cursor = (Cursor) adapter.getItem(position);
+                        //  intent.putExtra("sUID", cursor.getString(cursor.getColumnIndex("UID")));
+                        //  intent.putExtra("tNAME", cursor.getString(cursor.getColumnIndex("TANK_NAME")));
+
+
+                        String s1 = cursor.getString(cursor.getColumnIndex("TANK_NAME"));
+                        String s2 = cursor.getString(cursor.getColumnIndex("UID"));
+                        String s = "DELETE FROM wtrlvl WHERE UID ='" + s2 + "' AND TANK_NAME = '" + s1 + "'";
+                        db.execSQL(s);
+                        Toast.makeText(remove_sensor.this,
+                                "Entry removed", Toast.LENGTH_LONG).show();
+                        regenList();
+
+
+                    }
+                });
+                // display box
+                alertbox.show();
+
+
+            }
+
+        });
+
+        getSupportActionBar().setTitle("Remove Sensor");
 
         searchText.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
                 regenList();
-
             }
-
 
             @Override
             public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
@@ -154,32 +191,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        tankList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                Intent intent = new Intent(MainActivity.this, scatter.class);
-                Cursor cursor = (Cursor) adapter.getItem(position);
-                intent.putExtra("sDid", cursor.getString(cursor.getColumnIndex("_id")));
-                intent.putExtra("sUID", cursor.getString(cursor.getColumnIndex("UID")));
-                intent.putExtra("tNAME", cursor.getString(cursor.getColumnIndex("TANK_NAME")));
-                intent.putExtra("tSCALEM", cursor.getString(cursor.getColumnIndex("SCALE_M")));
-                intent.putExtra("tSCALEC", cursor.getString(cursor.getColumnIndex("SCALE_C")));
-                intent.putExtra("tUNIT", cursor.getString(cursor.getColumnIndex("UNIT")));
-                intent.putExtra("tDP", cursor.getString(cursor.getColumnIndex("DP")));
-
-                startActivity(intent);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-
-
-    }
-
-    @Override
-    public void onRestart() {
-        super.onRestart();
-        regenList();
-
     }
 
 
@@ -187,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         cursor = db.rawQuery("SELECT * FROM wtrlvl WHERE TANK_NAME || ' ' || TANK_NAME LIKE ?",
                 new String[]{"%" + searchText.getText().toString() + "%"});
         adapter = new SimpleCursorAdapter(
-                MainActivity.this,
+                remove_sensor.this,
                 R.layout.tank_list_item,
                 cursor,
                 new String[]{"TANK_NAME", "UID"},
