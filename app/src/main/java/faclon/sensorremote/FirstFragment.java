@@ -53,6 +53,7 @@ public class FirstFragment extends Fragment {
         return v;
     }
 
+
     public static FirstFragment newInstance(String text) {
 
         FirstFragment f = new FirstFragment();
