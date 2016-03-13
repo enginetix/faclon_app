@@ -1,4 +1,4 @@
-package faclon.sensorremoteclient;
+package faclon.sensorremote;
 
 /**
  * Created by Utkarsh on 18-Feb-16.
@@ -139,8 +139,8 @@ public class FirstFragment extends Fragment {
         protected void onPostExecute(String result) {
             LineChart chart = (LineChart) v.findViewById(R.id.chart1);
             chart.setTouchEnabled(true);
-            MyMarkerView mv = new MyMarkerView(getContext(), R.layout.custom_marker_view);
-            chart.setMarkerView(mv);
+//            MyMarkerView mv = new MyMarkerView(getContext(), R.layout.custom_marker_view);
+          //  chart.setMarkerView(mv);
             chart.setDrawGridBackground(false);
             LineData data = new LineData(getXAxisValues(), getDataSet());
             chart.setData(data);

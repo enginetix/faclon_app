@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="faclon.sensorremoteclient">
+    package="faclon.sensorremote">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,11 +22,16 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/MaterialDrawerTheme"/>
         <activity
             android:name=".scatter"
             android:label="@string/title_activity_scatter"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/scatterTheme"></activity>
+        <activity
+            android:name=".scaling"
+            android:label="@string/title_activity_scaling"
+            android:theme="@style/scatterTheme"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package faclon.sensorremoteclient;
+package faclon.sensorremote;
 
 /**
  * Created by Utkarsh on 25-Sep-15.
@@ -6,13 +6,16 @@ package faclon.sensorremoteclient;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import java.io.BufferedReader;

@@ -1,0 +1,15 @@
+<sql>
+    <statement>
+        CREATE TABLE IF NOT EXISTS wtrlvl (
+        _id INTEGER PRIMARY KEY AUTOINCREMENT,
+        UID VARCHAR(50),
+        TANK_NAME VARCHAR(50),
+        SCALE_M VARCHAR(9),
+        SCALE_C VARCHAR(9),
+        DP VARCHAR(4),
+        UNIT VARCHAR(15)
+        )
+    </statement>
+    <statement>INSERT INTO wtrlvl (UID, TANK_NAME, SCALE_M, SCALE_C, DP, UNIT) VALUES('field1','Test Sensor LVT','1','0','25','CM')</statement>
+    <statement>INSERT INTO wtrlvl (UID, TANK_NAME, SCALE_M, SCALE_C, DP, UNIT) VALUES('field1','Test Sensor Gauge','1','0','20','MM')</statement>
+</sql>

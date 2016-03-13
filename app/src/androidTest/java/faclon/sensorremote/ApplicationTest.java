@@ -1,4 +1,4 @@
-package faclon.sensorremoteclient;
+package faclon.sensorremote;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

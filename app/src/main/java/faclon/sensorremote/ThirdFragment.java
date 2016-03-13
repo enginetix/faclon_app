@@ -1,4 +1,4 @@
-package faclon.sensorremoteclient;
+package faclon.sensorremote;
 
 /**
  * Created by Utkarsh on 25-Sep-15.

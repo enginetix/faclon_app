@@ -1,7 +1,16 @@
 <resources>
-    <string name="app_name">Sensor Remote Client</string>
+    <string name="app_name">SensorRemote</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="action_settings">Settings</string>
-    <!-- Drawer Items -->
+
+    <string name="title_activity_scatter">Scatter</string>
+    <string name="title_activity_scaling">scaling</string>
+    <string name="title_activity_addsensor">addsensor</string>
+
+
     <string name="drawer_item_persistent_compact_header">PersistentHeader Drawer</string>
     <string name="drawer_item_persistent_compact_header_desc">Smaller persistent account header</string>
     <string name="drawer_item_compact_header">CompactHeader Drawer</string>
@@ -44,9 +53,4 @@
     <string name="drawer_item_help">Help</string>
     <string name="drawer_item_open_source">Open Source</string>
     <string name="drawer_item_contact">Contact</string>
-
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
-    <string name="title_activity_scatter">scatter</string>
-
-
 </resources>

@@ -1,5 +1,5 @@
 
-package faclon.sensorremoteclient;
+package faclon.sensorremote;
 
 import android.content.Context;
 import android.widget.TextView;
