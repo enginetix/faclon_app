@@ -92,6 +92,7 @@ public class addsensor extends AppCompatActivity {
 
                 .withGenerateMiniDrawer(true)
                 .withSavedInstance(savedInstanceState)
+                .withSelectedItem(3)
                         // build only the view of the Drawer (don't inflate it automatically in our layout which is done with .build())
                 .buildView();
 
@@ -102,6 +103,7 @@ public class addsensor extends AppCompatActivity {
         int firstWidth = (int) UIUtils.convertDpToPixel(230, this);
         int secondWidth = (int) UIUtils.convertDpToPixel(70, this);
 
+
         //create and build our crossfader (see the MiniDrawer is also built in here, as the build method returns the view to be used in the crossfader)
         //the crossfader library can be found here: https://github.com/mikepenz/Crossfader
         crossFader = new Crossfader()
@@ -110,6 +112,7 @@ public class addsensor extends AppCompatActivity {
                 .withSecond(miniResult.build(this), secondWidth)
                 .withSavedInstance(savedInstanceState)
                 .build();
+
 
         //define the crossfader to be used with the miniDrawer. This is required to be able to automatically toggle open / close
         //   miniResult.withCrossFader(new CrossfadeWrapper(crossFader));

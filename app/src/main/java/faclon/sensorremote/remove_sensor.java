@@ -65,6 +65,7 @@ public class remove_sensor extends AppCompatActivity {
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withTranslucentStatusBar(false)
+                .withSelectedItem(4)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Home").withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
                         new PrimaryDrawerItem().withName("Alerts").withIcon(GoogleMaterial.Icon.gmd_notifications_active).withBadge("" + (int) Math.floor(Math.random() * 30)).withBadgeStyle(new BadgeStyle(Color.RED, Color.RED)).withIdentifier(2).withSelectable(false),
