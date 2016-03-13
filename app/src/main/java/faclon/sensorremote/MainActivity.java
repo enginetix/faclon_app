@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, remove_sensor.class);
-                // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -84,12 +83,8 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("Alerts").withIcon(GoogleMaterial.Icon.gmd_notifications_active).withBadge("" + (int) Math.floor(Math.random() * 30)).withBadgeStyle(new BadgeStyle(Color.RED, Color.RED)).withIdentifier(2).withSelectable(false),
                         new PrimaryDrawerItem().withName("Add Device").withIcon(GoogleMaterial.Icon.gmd_plus_circle).withIdentifier(3),
                         new PrimaryDrawerItem().withName("Remove Device").withIcon(GoogleMaterial.Icon.gmd_minus_circle).withIdentifier(4),
-                        //  new PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
                         new PrimaryDrawerItem().withName("Help").withIcon(GoogleMaterial.Icon.gmd_help).withIdentifier(6),
-                        // new SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                        //new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
                         new DividerDrawerItem(),
-                        // new SwitchDrawerItem().withName("Switch").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener),
                         new SwitchDrawerItem().withName("Alerts").withIcon(GoogleMaterial.Icon.gmd_notifications).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
                 ) // add the items we want to use with our Drawer
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -116,18 +111,14 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .withGenerateMiniDrawer(true)
                 .withSavedInstance(savedInstanceState)
-                        // build only the view of the Drawer (don't inflate it automatically in our layout which is done with .build())
                 .buildView();
 
-        //the MiniDrawer is managed by the Drawer and we just get it to hook it into the Crossfader
         miniResult = result.getMiniDrawer();
 
-        //get the widths in px for the first and second panel
         int firstWidth = (int) UIUtils.convertDpToPixel(230, this);
         int secondWidth = (int) UIUtils.convertDpToPixel(70, this);
 
-        //create and build our crossfader (see the MiniDrawer is also built in here, as the build method returns the view to be used in the crossfader)
-        //the crossfader library can be found here: https://github.com/mikepenz/Crossfader
+
         crossFader = new Crossfader()
                 .withContent(findViewById(R.id.crossfade_content))
                 .withFirst(result.getSlider(), firstWidth)
