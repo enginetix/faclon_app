@@ -22,8 +22,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <faclon.sensorremote.pager
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <faclon.sensorremote.pager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

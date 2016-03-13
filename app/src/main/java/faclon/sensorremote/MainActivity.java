@@ -38,15 +38,25 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Drawer result = null;
-    private MiniDrawer miniResult = null;
-    private Crossfader crossFader;
     protected EditText searchText;
     protected SQLiteDatabase db;
     protected Cursor cursor;
     protected ListAdapter adapter;
     protected ListView tankList;
     protected Context context;
+    private Drawer result = null;
+    private MiniDrawer miniResult = null;
+    private Crossfader crossFader;
+    private OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton buttonView, boolean isChecked) {
+            if (drawerItem instanceof Nameable) {
+                Log.i("material-drawer", "DrawerItem: " + ((Nameable) drawerItem).getName() + " - toggleChecked: " + isChecked);
+            } else {
+                Log.i("material-drawer", "toggleChecked: " + isChecked);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,19 +101,24 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem.getIdentifier() == 1) {
-                            Intent intent = new Intent(MainActivity.this, MainActivity.class); startActivity(intent);
+                            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 2) {
-                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class);
+                            startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 3) {
-                            Intent intent = new Intent(MainActivity.this, addsensor.class); startActivity(intent);
+                            Intent intent = new Intent(MainActivity.this, addsensor.class);
+                            startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 4) {
-                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class);
+                            startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 6) {
-                            Intent intent = new Intent(MainActivity.this, remove_sensor.class); startActivity(intent);
+                            Intent intent = new Intent(MainActivity.this, remove_sensor.class);
+                            startActivity(intent);
                         }
 
                         return false;
@@ -184,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void regenList() {
         cursor = db.rawQuery("SELECT * FROM wtrlvl WHERE TANK_NAME || ' ' || TANK_NAME LIKE ?",
                 new String[]{"%" + searchText.getText().toString() + "%"});
@@ -196,17 +210,6 @@ public class MainActivity extends AppCompatActivity {
                 new int[]{R.id.Tankname});
         tankList.setAdapter(adapter);
     }
-
-    private OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton buttonView, boolean isChecked) {
-            if (drawerItem instanceof Nameable) {
-                Log.i("material-drawer", "DrawerItem: " + ((Nameable) drawerItem).getName() + " - toggleChecked: " + isChecked);
-            } else {
-                Log.i("material-drawer", "toggleChecked: " + isChecked);
-            }
-        }
-    };
 
 
 }

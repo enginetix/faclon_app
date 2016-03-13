@@ -45,9 +45,9 @@
 
             <Button
                 android:id="@+id/addsensor"
-                android:layout_below="@+id/SensorCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/SensorCode"
                 android:onClick="addSnsr"
                 android:text="ADD SENSOR" />
 
