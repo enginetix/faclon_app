@@ -46,9 +46,9 @@ public class scatter extends AppCompatActivity {
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Graph").setIcon(R.mipmap.ic_launcher));
-        tabLayout.addTab(tabLayout.newTab().setText("LVT").setIcon(R.mipmap.ic_launcher));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_launcher));
+        tabLayout.addTab(tabLayout.newTab().setText("Graph"));
+        tabLayout.addTab(tabLayout.newTab().setText("LVT"));
+        tabLayout.addTab(tabLayout.newTab().setText("Tank"));
 
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -142,9 +142,9 @@ public class scatter extends AppCompatActivity {
             args.putInt("numVar", numVar);
             args.putString("tNAME", tankname);
             args.putString("tSCALEC", SCALE_C);
-            args.putString("tSCALEM",SCALE_M);
-            args.putString("tUNIT",UNITs);
-            args.putString("tDP",DPs);
+            args.putString("tSCALEM", SCALE_M);
+            args.putString("tUNIT", UNITs);
+            args.putString("tDP", DPs);
 
 
             switch (pos) {

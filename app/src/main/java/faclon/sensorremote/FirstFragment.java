@@ -42,7 +42,7 @@ public class FirstFragment extends Fragment {
     float c = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {setRetainInstance(true);
         v = inflater.inflate(R.layout.first_frag, container, false);
         Bundle bundle = getArguments();
         if (bundle != null) {
