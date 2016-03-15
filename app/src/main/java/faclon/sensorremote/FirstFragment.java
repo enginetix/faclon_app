@@ -81,9 +81,8 @@ public class FirstFragment extends Fragment {
     private ArrayList<LineDataSet> getDataSet() {
         ArrayList<LineDataSet> dataSets = null;
         ArrayList<Entry> valueSet1 = new ArrayList<>();
-        for (int l = k-1; l >= 0; l--) {
-
-            valueSet1.add(new Entry(Float.parseFloat(ravi[l][1]) * m + c, l));
+        for (int l =k-1; l >=0; l--) {
+            valueSet1.add(new Entry(Float.parseFloat(ravi[l][1]) * m + c, k-l-1));
         }
 
         LineDataSet lDataSet1 = new LineDataSet(valueSet1, "Readings");
@@ -96,7 +95,7 @@ public class FirstFragment extends Fragment {
 
     private ArrayList<String> getXAxisValues() {
         ArrayList<String> xAxis = new ArrayList<>();
-        for (int i = k-1; i >= 0; i--) {
+        for (int i = k-1; i >=0; i--) {
             long unixSeconds = Long.parseLong(ravi[i][0] + "");
             Date date = new Date(unixSeconds * 1000L); // *1000 is to convert seconds to milliseconds
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a"); // the format of your date
