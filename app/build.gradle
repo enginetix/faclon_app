@@ -30,6 +30,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'com.android.support:design:23.0.0'
+    compile "com.google.android.gms:play-services-gcm:8.4.0"
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
     compile('com.mikepenz:materialdrawer:5.0.9@aar') {
         transitive = true
@@ -45,4 +46,4 @@ dependencies {
     }
 
 }
-
+apply plugin: 'com.google.gms.google-services'
