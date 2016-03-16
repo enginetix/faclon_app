@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.mikepenz.crossfader.Crossfader;
 import com.mikepenz.crossfader.util.UIUtils;
@@ -105,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 2) {
-                            Intent intent = new Intent(MainActivity.this, remove_sensor.class);
-                            startActivity(intent);
+
+                            Toast.makeText(getApplicationContext(), "Notifications under development", Toast.LENGTH_SHORT).show();
                         }
                         if (drawerItem.getIdentifier() == 3) {
                             Intent intent = new Intent(MainActivity.this, addsensor.class);
@@ -117,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         if (drawerItem.getIdentifier() == 6) {
-                            Intent intent = new Intent(MainActivity.this, remove_sensor.class);
-                            startActivity(intent);
+
+                            Toast.makeText(getApplicationContext(), "Help under development", Toast.LENGTH_SHORT).show();
                         }
 
                         return false;
