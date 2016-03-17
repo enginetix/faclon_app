@@ -87,7 +87,7 @@ public class MyGcmListenerService extends GcmListenerService {
                 .setSmallIcon(R.drawable.ic_stat_ic_notification)
                 .setContentTitle("Faclon: ")
                 .setContentText(message)
-                .setAutoCancel(true)
+                .setAutoCancel(false)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 

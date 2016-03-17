@@ -21,10 +21,6 @@ public class scatter extends AppCompatActivity {
     protected String SCALE_C;
     protected String DPs;
     protected String UNITs;
-    String np;
-    int k = 0;
-    float m;
-    float c;
     int numVar;
 
     @Override
