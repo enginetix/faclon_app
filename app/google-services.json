@@ -8,10 +8,10 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:27747143894:android:2f9999c382703d5c",
-        "client_id": "android:faclom.sensorremote",
+        "client_id": "android:faclon.sensorremote",
         "client_type": 1,
         "android_client_info": {
-          "package_name": "faclom.sensorremote",
+          "package_name": "faclon.sensorremote",
           "certificate_hash": []
         }
       },
