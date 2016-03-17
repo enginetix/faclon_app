@@ -1,12 +1,12 @@
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
- *
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p/>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,6 +20,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,12 @@ import com.google.android.gms.gcm.GcmListenerService;
 public class MyGcmListenerService extends GcmListenerService {
 
     private static final String TAG = "MyGcmListenerService";
+
+   /* int c=0;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+    SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);*/
+
 
     /**
      * Called when message is received.
@@ -46,7 +53,10 @@ public class MyGcmListenerService extends GcmListenerService {
         String category = data.getString("category");
         Log.d(TAG, "From: " + from);
         Log.d(TAG, "Message: " + message);
-        Log.d(TAG, "Category: "+ category);
+        Log.d(TAG, "Category: " + category);
+        /*editor.putInt("ctr", c++);
+        editor.apply();*/
+
 
         if (from.startsWith("/topics")) {
             // message received from some topic.
@@ -77,7 +87,7 @@ public class MyGcmListenerService extends GcmListenerService {
      * @param message GCM message received.
      */
     private void sendNotification(String message) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, scatter.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
@@ -94,6 +104,10 @@ public class MyGcmListenerService extends GcmListenerService {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        notificationManager.notify(0 /* ID of notification */,
+                notificationBuilder.build());
+
+
+
     }
 }

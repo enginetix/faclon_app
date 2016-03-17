@@ -49,6 +49,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 public class MainActivity extends AppCompatActivity {
 
 
+
     protected EditText searchText;
     protected SQLiteDatabase db;
     protected Cursor cursor;
